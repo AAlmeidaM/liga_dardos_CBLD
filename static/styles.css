@@ -27,3 +27,5 @@ label{ display:block; font-size:.95rem; margin:10px 0 6px; color:#d1d5db }
 .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px }
 .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
 hr{ border:0; border-top:1px solid #1f2937; margin:12px 0 }
+.stack > * + * { margin-top: 12px; }
+.stack hr { margin: 8px 0; }
