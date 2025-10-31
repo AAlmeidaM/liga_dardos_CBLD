@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liga de Dardos | Clasificación</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container flex" style="justify-content: space-between;">
+      <div><strong>🏆 Liga de Dardos</strong></div>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="standings.html">Clasificación</a>
+        <a href="jornadas.html">Jornadas</a>
+        <a href="matches.html">Partidos</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="card">
+      <h1>Clasificación general</h1>
+      <p class="small">Datos generados a partir de la última actualización publicada.</p>
+      <table class="table" id="standings-table">
+        <thead>
+          <tr><th>#</th><th>Equipo</th><th>JJ</th><th>G</th><th>P</th><th>GF</th><th>GC</th><th>DG</th><th>Puntos</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+  <div class="container footer">© 2025 Liga de Dardos</div>
+  <script src="static/site.js"></script>
+  <script>
+    window.renderStandingsPage();
+  </script>
+</body>
+</html>

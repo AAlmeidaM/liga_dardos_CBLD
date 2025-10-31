@@ -70,3 +70,22 @@ docker run -p 5000:5000 --env-file .env dardos-league
 * Los empates no están permitidos.
 
 Con estos archivos, puede publicar el repositorio en GitHub y desplegar la app de forma inmediata.
+
+## Vista pública en GitHub Pages
+
+El repositorio incluye ahora una versión estática (solo lectura) de la web pensada
+para publicar en GitHub Pages:
+
+1. Configura GitHub Pages para servir desde la rama `main` y la carpeta raíz.
+2. El fichero `index.html` será la página de inicio y consumirá los datos JSON del
+   directorio `data/`.
+3. Tras actualizar resultados en la app Flask, ejecuta:
+   ```bash
+   python export_public_data.py
+   ```
+   Esto regenerará los ficheros JSON con la información más reciente.
+4. Confirma y sube los cambios a GitHub. Pages se actualizará automáticamente.
+
+> La versión estática muestra clasificaciones, jornadas y partidos, pero las
+> acciones de administración (login, carga de resultados, etc.) siguen estando
+> disponibles únicamente en el despliegue Flask.

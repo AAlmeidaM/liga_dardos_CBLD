@@ -1,0 +1,9 @@
+[
+  {"pos": 1, "team_name": "Los Dragones", "played": 10, "wins": 8, "losses": 2, "gf": 62, "ga": 41, "gd": 21, "points": 26},
+  {"pos": 2, "team_name": "Dardos del Norte", "played": 10, "wins": 7, "losses": 3, "gf": 58, "ga": 44, "gd": 14, "points": 24},
+  {"pos": 3, "team_name": "Flechas Rojas", "played": 10, "wins": 6, "losses": 4, "gf": 55, "ga": 47, "gd": 8, "points": 21},
+  {"pos": 4, "team_name": "Club Albatros", "played": 10, "wins": 5, "losses": 5, "gf": 49, "ga": 48, "gd": 1, "points": 18},
+  {"pos": 5, "team_name": "Precision 180", "played": 10, "wins": 4, "losses": 6, "gf": 46, "ga": 53, "gd": -7, "points": 15},
+  {"pos": 6, "team_name": "Triple 20", "played": 10, "wins": 3, "losses": 7, "gf": 42, "ga": 57, "gd": -15, "points": 12},
+  {"pos": 7, "team_name": "Bullseye", "played": 10, "wins": 2, "losses": 8, "gf": 39, "ga": 61, "gd": -22, "points": 9}
+]
