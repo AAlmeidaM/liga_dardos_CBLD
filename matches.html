@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liga de Dardos | Partidos</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container flex" style="justify-content: space-between;">
+      <div><strong>🏆 Liga de Dardos</strong></div>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="standings.html">Clasificación</a>
+        <a href="jornadas.html">Jornadas</a>
+        <a href="matches.html">Partidos</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="card">
+      <h1>Listado de partidos</h1>
+      <p class="small">Incluye resultados cerrados y enfrentamientos por disputar.</p>
+      <table class="table" id="matches-table">
+        <thead>
+          <tr><th>Jornada</th><th>Fecha</th><th>Local</th><th>Visitante</th><th>Marcador</th><th>Notas</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+  <div class="container footer">© 2025 Liga de Dardos</div>
+  <script src="static/site.js"></script>
+  <script>
+    window.renderMatchesPage();
+  </script>
+</body>
+</html>

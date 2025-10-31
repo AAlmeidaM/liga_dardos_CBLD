@@ -1,0 +1,5 @@
+[
+  {"jornada_id": 5, "home_name": "Los Dragones", "away_name": "Precision 180", "home_score": 7, "away_score": 3, "status": "completed", "winner_one_player": 0, "no_show_team_id": null, "date": "2024-05-11"},
+  {"jornada_id": 5, "home_name": "Triple 20", "away_name": "Club Albatros", "home_score": 4, "away_score": 7, "status": "completed", "winner_one_player": 0, "no_show_team_id": null, "date": "2024-05-11"},
+  {"jornada_id": 5, "home_name": "Bullseye", "away_name": "Dardos del Norte", "home_score": 0, "away_score": 7, "status": "completed", "winner_one_player": 1, "no_show_team_id": null, "date": "2024-05-12"}
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "jornada": {"id": 5, "number": 5, "date": "2024-05-11"},
+    "matches": [
+      {"id": 41, "home_name": "Los Dragones", "away_name": "Precision 180", "status": "completed", "home_score": 7, "away_score": 3, "no_show_team_id": null},
+      {"id": 42, "home_name": "Triple 20", "away_name": "Club Albatros", "status": "completed", "home_score": 4, "away_score": 7, "no_show_team_id": null},
+      {"id": 43, "home_name": "Bullseye", "away_name": "Dardos del Norte", "status": "completed", "home_score": 0, "away_score": 7, "no_show_team_id": null}
+    ]
+  },
+  {
+    "jornada": {"id": 6, "number": 6, "date": "2024-05-18"},
+    "matches": [
+      {"id": 44, "home_name": "Los Dragones", "away_name": "Club Albatros", "status": "scheduled", "home_score": null, "away_score": null, "no_show_team_id": null},
+      {"id": 45, "home_name": "Precision 180", "away_name": "Bullseye", "status": "scheduled", "home_score": null, "away_score": null, "no_show_team_id": null},
+      {"id": 46, "home_name": "Dardos del Norte", "away_name": "Triple 20", "status": "scheduled", "home_score": null, "away_score": null, "no_show_team_id": null}
+    ]
+  }
+]
