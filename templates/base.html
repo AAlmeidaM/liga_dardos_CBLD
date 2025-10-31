@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liga de Dardos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container flex" style="justify-content: space-between;">
+      <div>
+        <strong>🏆 Liga de Dardos</strong>
+      </div>
+      <nav>
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('standings') }}">Clasificación</a>
+        <a href="{{ url_for('jornadas') }}">Jornadas</a>
+        <a href="{{ url_for('matches') }}">Partidos</a>
+        {% if session.get('role') == 'team' %}
+          <a href="{{ url_for('team_dashboard') }}">Mi equipo</a>
+          <a href="{{ url_for('logout') }}">Salir</a>
+        {% elif session.get('role') == 'admin' %}
+          <a href="{{ url_for('admin_dashboard') }}">Admin</a>
+          <a href="{{ url_for('logout') }}">Salir</a>
+        {% else %}
+          <a href="{{ url_for('login') }}">Entrar</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <div class="container footer">© {{ 2025 }} Liga de Dardos</div>
+</body>
+</html>

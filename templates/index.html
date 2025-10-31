@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid">
+  <section class="card">
+    <h2>Clasificación</h2>
+    <table class="table">
+      <thead>
+        <tr><th>#</th><th>Equipo</th><th>JJ</th><th>G</th><th>P</th><th>GF</th><th>GC</th><th>DG</th><th>Puntos</th></tr>
+      </thead>
+      <tbody>
+      {% for r in standings %}
+        <tr>
+          <td>{{ r.pos }}</td>
+          <td>{{ r.team_name }}</td>
+          <td>{{ r.played }}</td>
+          <td>{{ r.wins }}</td>
+          <td>{{ r.losses }}</td>
+          <td>{{ r.gf }}</td>
+          <td>{{ r.ga }}</td>
+          <td>{{ r.gd }}</td>
+          <td><strong>{{ r.points }}</strong></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Próximos partidos</h2>
+    {% for m in upcoming %}
+      <div class="flex" style="justify-content:space-between">
+        <div>
+          <span class="badge">Jornada {{ m.jornada_id }}</span>
+          <strong>{{ m.home_name }}</strong> vs <strong>{{ m.away_name }}</strong>
+        </div>
+        <div class="small">{{ m.date }}</div>
+      </div>
+      <hr>
+    {% else %}
+      <div class="small">No hay próximos partidos.</div>
+    {% endfor %}
+  </section>
+</div>
+
+<section class="card">
+  <h2>Resultados recientes</h2>
+  {% for m in recent %}
+    <div class="flex" style="justify-content:space-between">
+      <div>
+        <span class="badge">Jornada {{ m.jornada_id }}</span>
+        <strong>{{ m.home_name }}</strong>
+        {% if m.status=='completed' and not m.no_show_team_id %}
+          {{ m.home_score }} - {{ m.away_score }}
+        {% else %}
+          vs
+        {% endif %}
+        <strong>{{ m.away_name }}</strong>
+        {% if m.no_show_team_id %}
+          <span class="small">(incomparecencia)</span>
+        {% endif %}
+        {% if m.winner_one_player %}
+          <span class="small">(victoria con 1 jugador)</span>
+        {% endif %}
+      </div>
+      <div class="small">{{ m.date }}</div>
+    </div>
+    <hr>
+  {% else %}
+    <div class="small">Sin resultados aún.</div>
+  {% endfor %}
+</section>
+{% endblock %}

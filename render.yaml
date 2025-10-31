@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: dardos-league
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --preload --workers 2 --threads 4 --bind 0.0.0.0:$PORT
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        value: cambia_esta_contraseña
+      - key: TIMEZONE
+        value: Europe/Madrid
+      - key: NO_SHOW_WIN_POINTS
+        value: "3"

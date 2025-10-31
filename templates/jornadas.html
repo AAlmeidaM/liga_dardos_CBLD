@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Jornadas</h2>
+{% for item in data %}
+  <section class="card">
+    <h3>Jornada {{ item.jornada.number }} — {{ item.jornada.date }}</h3>
+    <table class="table">
+      <thead><tr><th>Local</th><th>Visitante</th><th>Estado</th><th>Resultado</th></tr></thead>
+      <tbody>
+      {% for m in item.matches %}
+        <tr>
+          <td>{{ m.home_name }}</td>
+          <td>{{ m.away_name }}</td>
+          <td>{{ m.status }}</td>
+          <td>
+            {% if m.no_show_team_id %}
+              Incomparecencia
+            {% elif m.status=='completed' %}
+              {{ m.home_score }} - {{ m.away_score }}
+              {% if m.winner_one_player %}<span class="small">(win con 1)</span>{% endif %}
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endfor %}
+{% endblock %}

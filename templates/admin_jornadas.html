@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Configurar jornadas</h2>
+<section class="card">
+  <form method="post">
+    <label>Número de jornadas</label>
+    <input name="num_jornadas" type="number" min="1" value="{{ jornadas|length if jornadas else 10 }}" required>
+    <div class="grid">
+      {% set total = jornadas|length if jornadas else 10 %}
+      {% for i in range(1, total+1) %}
+        <div>
+          <label>Jornada {{ i }} — Fecha (YYYY-MM-DD)</label>
+          <input name="date_{{ i }}" value="{{ jornadas[i-1].date if jornadas and i-1 < jornadas|length else '' }}" placeholder="2025-10-31">
+        </div>
+      {% endfor %}
+    </div>
+    <div style="margin-top:12px"><button class="btn" type="submit">Guardar</button></div>
+  </form>
+</section>
+{% endblock %}

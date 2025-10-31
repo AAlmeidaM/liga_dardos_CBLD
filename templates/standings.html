@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Clasificación</h2>
+  <table class="table">
+    <thead>
+      <tr><th>#</th><th>Equipo</th><th>JJ</th><th>G</th><th>P</th><th>GF</th><th>GC</th><th>DG</th><th>Puntos</th><th>NP</th></tr>
+    </thead>
+    <tbody>
+    {% for r in table %}
+      <tr>
+        <td>{{ r.pos }}</td>
+        <td>{{ r.team_name }}</td>
+        <td>{{ r.played }}</td>
+        <td>{{ r.wins }}</td>
+        <td>{{ r.losses }}</td>
+        <td>{{ r.gf }}</td>
+        <td>{{ r.ga }}</td>
+        <td>{{ r.gd }}</td>
+        <td><strong>{{ r.points }}</strong></td>
+        <td>{{ r.no_shows }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Partidos (admin)</h2>
+<section class="card">
+  <table class="table">
+    <thead><tr><th>J</th><th>Fecha</th><th>Local</th><th>Visitante</th><th>Estado</th><th>Marcador</th><th>Acciones</th></tr></thead>
+    <tbody>
+    {% for m in matches %}
+      <tr>
+        <td>{{ m.jn }}</td>
+        <td>{{ m.date }}</td>
+        <td>{{ m.home_name }}</td>
+        <td>{{ m.away_name }}</td>
+        <td>{{ m.status }}</td>
+        <td>
+          {% if m.no_show_team_id %}
+            Incomparecencia
+          {% elif m.status=='completed' %}
+            {{ m.home_score }} - {{ m.away_score }}{% if m.winner_one_player %} (win 1){% endif %}
+          {% else %}
+            —
+          {% endif %}
+        </td>
+        <td>
+          <form method="post" action="{{ url_for('admin_match_reset', match_id=m.id) }}" style="display:inline">
+            <button class="btn warning" type="submit">Reabrir</button>
+          </form>
+          <form method="post" action="{{ url_for('admin_match_delete', match_id=m.id) }}" style="display:inline">
+            <button class="btn danger" type="submit">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

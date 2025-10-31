@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card" style="max-width:640px">
+  <h2>Introducir resultado</h2>
+  <p>
+    <span class="badge">Jornada {{ m.jornada_id }}</span>
+    <strong>{{ m.home_name }}</strong> vs <strong>{{ m.away_name }}</strong>
+    <span class="small">Fecha: {{ m.date }}</span>
+  </p>
+  <form method="post">
+    <label>
+      <input type="checkbox" name="no_show" value="opponent">
+      El rival no se presentó
+    </label>
+    <hr>
+    <div class="grid">
+      <div>
+        <label>{{ m.home_name }} (puntos/legs)</label>
+        <input name="home_score" type="number" min="0" placeholder="0">
+      </div>
+      <div>
+        <label>{{ m.away_name }} (puntos/legs)</label>
+        <input name="away_score" type="number" min="0" placeholder="0">
+      </div>
+    </div>
+    <label>
+      <input type="checkbox" name="winner_one_player">
+      El equipo ganador jugó con un solo jugador
+    </label>
+    <p class="small">Regla de puntos: 3 por victoria normal; 2 si el ganador jugó con un solo jugador; 1 por derrota; 0 por incomparecencia.</p>
+    <div style="margin-top:12px"><button class="btn" type="submit">Guardar resultado</button></div>
+  </form>
+</section>
+{% endblock %}

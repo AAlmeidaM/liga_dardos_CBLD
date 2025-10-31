@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mi equipo: {{ team.name }}</h2>
+<div class="grid">
+  <section class="card">
+    <h3>Partidos por jugar</h3>
+    {% for m in upcoming %}
+      <div class="flex" style="justify-content:space-between">
+        <div>
+          <span class="badge">Jornada {{ m.jornada_id }}</span>
+          <strong>{{ m.home_name }}</strong> vs <strong>{{ m.away_name }}</strong>
+        </div>
+        <div class="small">{{ m.date }}</div>
+      </div>
+      <hr>
+    {% else %}
+      <div class="small">No hay próximos partidos.</div>
+    {% endfor %}
+  </section>
+
+  <section class="card">
+    <h3>Pendientes de resultado (fecha pasada o hoy)</h3>
+    {% for m in pending %}
+      <div class="flex" style="justify-content:space-between; align-items:center">
+        <div>
+          <span class="badge">Jornada {{ m.jornada_id }}</span>
+          <strong>{{ m.home_name }}</strong> vs <strong>{{ m.away_name }}</strong>
+          <span class="small">({{ m.date }})</span>
+        </div>
+        <div>
+          <a class="btn" href="{{ url_for('enter_result', match_id=m.id) }}">Introducir resultado</a>
+        </div>
+      </div>
+      <hr>
+    {% else %}
+      <div class="small">No hay partidos pendientes de registrar.</div>
+    {% endfor %}
+  </section>
+</div>
+
+<section class="card">
+  <h3>Resultados recientes</h3>
+  {% for m in recent %}
+    <div class="flex" style="justify-content:space-between">
+      <div>
+        <span class="badge">Jornada {{ m.jornada_id }}</span>
+        <strong>{{ m.home_name }}</strong>
+        {% if m.no_show_team_id %}
+          vs <strong>{{ m.away_name }}</strong> <span class="small">(incomparecencia)</span>
+        {% else %}
+          {{ m.home_score }} - {{ m.away_score }} <strong>{{ m.away_name }}</strong>
+        {% endif %}
+      </div>
+      <div class="small">{{ m.date }}</div>
+    </div>
+    <hr>
+  {% else %}
+    <div class="small">Sin resultados aún.</div>
+  {% endfor %}
+</section>
+{% endblock %}
