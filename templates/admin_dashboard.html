@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Panel de administración</h2>
+<div class="grid-3">
+  <section class="card">
+    <h3>Equipos</h3>
+    <p><strong>{{ team_count }}</strong> equipos</p>
+    <a class="btn" href="{{ url_for('admin_teams') }}">Gestionar equipos</a>
+  </section>
+  <section class="card">
+    <h3>Jornadas</h3>
+    <p><strong>{{ jornada_count }}</strong> jornadas</p>
+    <a class="btn" href="{{ url_for('admin_jornadas') }}">Configurar jornadas</a>
+  </section>
+  <section class="card">
+    <h3>Partidos</h3>
+    <p><strong>{{ match_count }}</strong> partidos</p>
+    <a class="btn" href="{{ url_for('admin_matches') }}">Ver y editar</a>
+  </section>
+</div>
+<section class="card">
+  <h3>Generar calendario</h3>
+  <form method="post" action="{{ url_for('admin_generate_fixtures') }}">
+    <label><input type="checkbox" name="reset"> Borrar partidos existentes y regenerar</label>
+    <p class="small">Se usará emparejamiento round-robin. Si hay más jornadas que rondas, se invertirá la localía para completar la segunda vuelta.</p>
+    <button class="btn" type="submit">Generar</button>
+  </form>
+</section>
+{% endblock %}

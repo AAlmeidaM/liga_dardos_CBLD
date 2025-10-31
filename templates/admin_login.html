@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card" style="max-width:520px">
+  <h2>Acceso administración</h2>
+  <p>Utilice el <strong>usuario</strong> y <strong>contraseña</strong> configurados en el archivo <code>.env</code>.</p>
+  <a class="btn" href="{{ url_for('login') }}">Ir a iniciar sesión</a>
+</section>
+{% endblock %}
